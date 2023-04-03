@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
+  "type": "module",
   "scripts": {
     "dev": "tsc -w & nodemon dist/index.js",
     "start": "tsc & node dist/index.js"
@@ -24,7 +25,16 @@
     "nodemon": "^2.0.22"
   },
   "dependencies": {
-    "express": "^4.18.2",
-    "mongoose": "^7.0.3"
+    "@mikro-orm/cli": "^5.6.15",
+    "@mikro-orm/core": "^5.6.15",
+    "@mikro-orm/mongodb": "^5.6.15",
+    "express": "^4.18.2"
+  },
+  "mikro-orm": {
+    "useTsNode": true,
+    "configPaths": [
+      "./src/mikro-orm.config.ts",
+      "./dist/mikro-orm.config.js"
+    ]
   }
 }
