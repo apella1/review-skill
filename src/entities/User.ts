@@ -1,5 +1,6 @@
 import {
   Entity,
+  OneToMany,
   PrimaryKey,
   Property,
   SerializedPrimaryKey,
@@ -21,19 +22,28 @@ export class User {
   @Property({ onUpdate: () => new Date() })
   updatedAt: Date = new Date();
 
-  @Property()
+  @Property({hidden: true})
   firstName!: string;
 
-  @Property()
+  @Property({hidden: true})
   lastName!: string;
 
   @Property({ unique: true })
   username!: string;
 
-  @Property()
-  email!: string;
+  // virtual fullName field
+  @Property({ name: "fullName" })
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
 
   @Property()
+  email!: string;
+    
+  @Property()
+  password!: string;
+
+  @OneToMany(() => Task, task => task.user)
   tasks!: Task[];
 
   @Property()
@@ -43,11 +53,13 @@ export class User {
     firstName: string,
     lastName: string,
     username: string,
-    email: string
+    email: string,
+    password: string
   ) {
     this.firstName = firstName;
-    this.lastName = this.lastName;
-    this.username = this.username;
+    this.lastName = lastName;
+    this.username = username;
     this.email = email;
+    this.password = password;
   }
 }

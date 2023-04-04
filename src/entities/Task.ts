@@ -1,5 +1,6 @@
 import {
   Entity,
+  ManyToOne,
   PrimaryKey,
   Property,
   SerializedPrimaryKey,
@@ -15,7 +16,7 @@ export class Task {
   @SerializedPrimaryKey()
   id!: string;
 
-  @Property()
+  @ManyToOne()
   user!: User;
 
   @Property()

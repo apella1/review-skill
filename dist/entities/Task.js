@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Entity, PrimaryKey, Property, SerializedPrimaryKey, } from "@mikro-orm/core";
+import { Entity, ManyToOne, PrimaryKey, Property, SerializedPrimaryKey, } from "@mikro-orm/core";
 import { ObjectId } from "@mikro-orm/mongodb";
 import { User } from "./User.js";
 let Task = class Task {
@@ -27,7 +27,7 @@ __decorate([
     __metadata("design:type", String)
 ], Task.prototype, "id", void 0);
 __decorate([
-    Property(),
+    ManyToOne(),
     __metadata("design:type", User)
 ], Task.prototype, "user", void 0);
 __decorate([
