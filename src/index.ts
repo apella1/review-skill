@@ -1,7 +1,7 @@
 import express from "express";
 import { MikroORM, RequestContext } from "@mikro-orm/core";
-import { port } from "./constants";
-import config from "./mikro-orm.config";
+import { port } from "./constants.js";
+import config from "./mikro-orm.config.js";
 
 const orm = await MikroORM.init(config);
 
