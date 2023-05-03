@@ -12,3 +12,4 @@ With ReviewSkill, you can easily keep track of your progress and stay on top of 
 - [Express](https://expressjs.com/)
 - [Node](https://nodejs.org/en/)
 - [MongoDB](https://www.mongodb.com/)
+- [mikro-orm](https://mikro-orm.io/)
